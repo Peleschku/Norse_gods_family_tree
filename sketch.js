@@ -98,6 +98,16 @@ let domain = {  Ymir:"Forefather of Jötnar",
                 Bestia:"The Mother of Odin",
                 Borr:"The Father of Odin",
                 Dellingr:"Husband of Nott",
+                Kari:"Placeholder",
+                Logi:"Placeholder",
+                Gymir:"Placeholder",
+                Aurboda:"Gravel-bidder",
+                Idi:"Placeholder",
+                Gangr:"Placeholder",
+                Thiazi:"Placeholder",
+                Njord:"Married his sister",
+                NjordSis:"Njord's Sister-Wife",
+                Skadi:"Placeholder",
 
              };
 
@@ -122,6 +132,16 @@ let description = { Ymir:"Forefather of Jötnar",
                     Bestia:"The Mother of Odin",
                     Borr:"The Father of Odin",
                     Dellingr:"Husband of Nott",
+                    Kari:"Placeholder",
+                    Logi:"Placeholder",
+                    Gymir:"Placeholder",
+                    Aurboda:"Gravel-bidder",
+                    Idi:"Placeholder",
+                    Gangr:"Placeholder",
+                    Thiazi:"Placeholder",
+                    Njord:"Married his sister",
+                    NjordSis:"Njord's Sister-Wife",
+                    Skadi:"Placeholder",
              };
 
 //************make a shit ton of gods************//
@@ -150,7 +170,7 @@ let Aurgelmir = new God("Aurgelmir", centers.regular,level4,"img/Erebus.png",reg
 let Narfi = new God("Narfi",Aurgelmir.x-(cardSpace*2),level4,"img/Erebus.png",regularCard.width,regularCard.height,regularCard.type,godType.jotunn,domain.Narfi,description.Narfi);
 let Bolthorn = new God("Bǫlþorn",Narfi.x-(cardSpace*3),level4,"img/Erebus.png",regularCard.width,regularCard.height,regularCard.type,godType.jotunn,domain.Bolthorn,description.Bolthorn);
 let Fornjotr = new God("Fornjótr",Aurgelmir.x+(cardSpace*3.5),level4,"img/Gaia.png",regularCard.width,regularCard.height,regularCard.type,godType.jotunn,domain.Fornjotr,description.Fornjotr);
-let Alvaldi = new God("Alvaldi", Fornjotr.x+(cardSpace*5),level4,"img/Erebus.png",regularCard.width,regularCard.height,regularCard.type,godType.jotunn,domain.Alvaldi,description.Alvaldi);
+let Alvaldi = new God("Alvaldi", Fornjotr.x+(cardSpace*7.8),level4,"img/Erebus.png",regularCard.width,regularCard.height,regularCard.type,godType.jotunn,domain.Alvaldi,description.Alvaldi);
 
 let level5 = Fornjotr.y+(cardAbove);
 
@@ -165,7 +185,15 @@ let Naglfari = new God('Naglfari',Nott.x-(cardSpace),level5-cardSpace,null, smal
 let Mimir = new God("Mímir",Nott.x-(cardSpace*4),level5,"img/Gaia.png",regularCard.width,regularCard.height,regularCard.type,godType.jotunn,domain.Mimir,description.Mimir);
 let Bestia = new God("Bestia",Mimir.x+(cardSpace),level5,"img/Tartarus.png",regularCard.width,regularCard.height,regularCard.type,godType.jotunn,domain.Bestia,description.Bestia);
 let Borr = new God("Borr",Bestia.x+(cardSpace),level5,"img/Gaia.png",regularCard.width,regularCard.height,regularCard.type,godType.jotunn,domain.Borr,description.Borr);
-let Dellingr = new God("Dellingr", Nott.x+(cardSpace),level5-cardSpace,"img/Gaia.png",regularCard.width,regularCard.height,regularCard.godType,godType.jotunn,domain.Dellingr,description.Dellingr);
+let Dellingr = new God("Dellingr", Nott.x+(cardSpace),level5-cardSpace,"img/Gaia.png",regularCard.width,regularCard.height,regularCard.type,godType.jotunn,domain.Dellingr,description.Dellingr);
+let Gymir = new God("Gymir",Aegir.x+(cardSpace),level5,"img/Gaia.png",regularCard.width,regularCard.height,regularCard.type,godType.jotunn,domain.Gymir,description.Gymir);
+let Aurboda = new God("Aurboða",Gymir.x+(cardSpace),level5,"img/Gaia.png",regularCard.width,regularCard.height,regularCard.type,godType.jotunn,domain.Aurboda,description.Aurboda);
+let Kari = new God("Kári",Aurboda.x+(cardSpace),level5,null,smallCard.width,smallCard.height,smallCard.type,godType.jotunn,domain.Kari,description.Kari);
+let Logi = new God("Logi",Kari.x+(cardSpace),level5,null,smallCard.width,smallCard.height,smallCard.type,godType.jotunn,domain.Logi,description.Logi);
+let Idi = new God("Iði",Logi.x+(cardSpace+38),level5,null,smallCard.width,smallCard.height,smallCard.regular,godType.jotunn,domain.Idi,description.Idi);
+let Gangr = new God("Gangr",Idi.x+(cardSpace),level5,null,smallCard.width,smallCard.height,smallCard.type,godType.jotunn,domain.Gangr,description.Gangr);
+let Thiazi = new God("Þjazi",Gangr.x+(cardSpace),level5,null,smallCard.width,smallCard.height,smallCard.type,godType.jotunn,domain.Thiazi,description.Thiazi);
+
 
 
 
@@ -193,6 +221,13 @@ familyTree.push(Naglfari);
 familyTree.push(Bestia);
 familyTree.push(Borr);
 familyTree.push(Dellingr);
+familyTree.push(Kari);
+familyTree.push(Logi);
+familyTree.push(Gymir);
+familyTree.push(Aurboda);
+familyTree.push(Idi);
+familyTree.push(Gangr);
+familyTree.push(Thiazi);
 
 
 
@@ -429,7 +464,7 @@ function makeConnections(){
     };
     
     //Fornjotr's kids
-    var fornKids = [Laufey, Aegir]
+    var fornKids = [Laufey, Aegir, Kari, Logi, Gymir]
     
     for(let god of fornKids){
       pathMaker(singleParent,Fornjotr,god,lineType.main,"child","Fornjotr"+god.norseName,0,20);
@@ -448,12 +483,21 @@ function makeConnections(){
     //Narfi Kid
     pathMaker(singleParent,Narfi,Nott,lineType.main,"child","Narfi"+Nott.norseName,0,20);
 
+    //Avaldi Kids
+
+    var avalKids = [Idi, Gangr, Thiazi]
+
+    for(let god of avalKids){
+        pathMaker(singleParent,Alvaldi,god,lineType.main,"child","Avaldi"+god.norseName,0,20)
+    };
+
     //spouses
     pathMaker(spousePath,Farbauti,Laufey,lineType.main,"spouse","LauFar",0,45);
     pathMaker(spousePath,Ran,Aegir,lineType.main,"spouse","AegRan",0,45);
     pathMaker(spousePath,Bestia,Borr,lineType.main,"spouse","BestBor",0,45);
     pathMaker(spousePath,Nott,Naglfari,lineType.main,"spouse","NagNot",0,45);
     pathMaker(spousePath,Nott,Dellingr,lineType.main,"spouse","NotDell",0,45);
+    pathMaker(spousePath,Gymir,Aurboda,lineType.main,"spouse","GymAur",0,45)
 
 }
 
